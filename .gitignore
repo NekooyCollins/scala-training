@@ -1,0 +1,7 @@
+# gitignore file
+
+target/
+project/target/
+.idea
+.bsp
+
