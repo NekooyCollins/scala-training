@@ -12,5 +12,6 @@ val akkaVersion = "2.6.5"
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream" % akkaVersion,
   "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
-  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion
+  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value
 )
