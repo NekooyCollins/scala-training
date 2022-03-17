@@ -1,3 +1,5 @@
+package rockthejvm
+
 import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
@@ -14,7 +16,7 @@ object TryExample extends App {
   }
 
   def devideByEither(a: Int, b: Int): Either[Throwable, Int] = {
-    if (b != 0) Right(a/b)
+    if (b != 0) Right(a / b)
     else Left(new IllegalArgumentException())
   }
 

@@ -1,3 +1,5 @@
+package rockthejvm
+
 object EitherExamples extends App {
 
   val eLeft: Either[String, Int] = Left("foo")
@@ -8,9 +10,9 @@ object EitherExamples extends App {
     case Right(rvalue) => println(s"right: $rvalue")
   }
 
-  println(eRight.map((i:Int) => i * 2)) // Right(2)
-  println(eLeft.map((i:Int) => i * 2))  // Left(foo)
-  println(eRight.flatMap { (x: Int) =>  // Right(2) = Right(1) + Right(1)
+  println(eRight.map((i: Int) => i * 2)) // Right(2)
+  println(eLeft.map((i: Int) => i * 2)) // Left(foo)
+  println(eRight.flatMap { (x: Int) => // Right(2) = Right(1) + Right(1)
     eRight.map { (y: Int) => x + y }
   })
 
@@ -22,14 +24,14 @@ object EitherExamples extends App {
 
   val r = some.toRight("foo")
   println(s"${some.toRight("foo")}") // Right(1)
-  println(s"${some.toLeft("foo")}")  // Left(1)
+  println(s"${some.toLeft("foo")}") // Left(1)
 
   // Option[Option[Int]]
   val ee: Either[String, Either[String, Int]] = Right(Right(1))
-  println(s"Unflattened: $ee")          // Unflattened: Right(Right(1))
-  println(s"Flattened: ${ee.flatten}")  // Flattened: Right(1)
+  println(s"Unflattened: $ee") // Unflattened: Right(Right(1))
+  println(s"Flattened: ${ee.flatten}") // Flattened: Right(1)
 
-  println(eLeft.left.map((s: String) => s.toUpperCase()))  // Left(FOO)
+  println(eLeft.left.map((s: String) => s.toUpperCase())) // Left(FOO)
   println(eRight.left.map((s: String) => s.toUpperCase())) // Right(1)
 
   println(eLeft.left.flatMap((x: String) => eLeft.left.map((y: String) => x + y))) // Left(foofoo)
