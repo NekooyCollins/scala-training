@@ -3,7 +3,7 @@ import org.scalatest.wordspec.AnyWordSpec
 import org.scalacheck._
 import Arbitrary.arbitrary
 
-class MainTest extends AnyWordSpec {
+class PropertyBasedTest extends AnyWordSpec {
 
   val arbitraryInt: Gen[Int] = arbitrary[Int]
   val zeroOrMoreDigits = Gen.someOf(1 to 9)
