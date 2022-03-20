@@ -16,6 +16,8 @@ libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value
 )
 
+libraryDependencies += "io.spray" %%  "spray-json" % "1.3.6"
+
 // Test
 
 libraryDependencies ++= Seq(

@@ -1,4 +1,4 @@
-package rockthejvm
+package rockthejvm.fundamental
 
 object FunctionalProgramming extends App {
   /*
@@ -40,46 +40,46 @@ object FunctionalProgramming extends App {
   }
   */
 
-  val aMappedList: List[Int] = List(1,2,3).map(x => x + 1) //a HOF
+  val aMappedList: List[Int] = List(1, 2, 3).map(x => x + 1) //a HOF
   // .map is a special method that allows passing a function in it.
   // Do not need to mention the type of x
   // mapped list returns a different list
 
-  val aFlatMappedList = List(1,2,3).flatMap {x => // alternative syntax with curly braces, same as .map(x => List(x, 2 * x))
+  val aFlatMappedList = List(1, 2, 3).flatMap { x => // alternative syntax with curly braces, same as .map(x => List(x, 2 * x))
     List(x, 2 * x)
   } //returns (1,2 2,4 3,6)
 
-  val aFilteredList = List(1,2,3,4,5).filter(x => x <= 3)
+  val aFilteredList = List(1, 2, 3, 4, 5).filter(x => x <= 3)
   //returns the list where the condition x <=3 is true -> (1,2,3)
   // shorter syntax .filter(_ <= 3)
 
   // all pairs between numbers 1,2,3 and the letters 'a', 'b', 'c'
-  val allPairs = List(1,2,3).flatMap(number => List('a', 'b', 'c').map(letter => s"$number-$letter"))
+  val allPairs = List(1, 2, 3).flatMap(number => List('a', 'b', 'c').map(letter => s"$number-$letter"))
   // returns (1-a, 1-b, 1-c, 2-a, 2-b, 2-c, 3-a, 3-b, 3-c)
 
   // for comprehensions
   val alternativePairs = for {
-    number <- List(1,2,3)
+    number <- List(1, 2, 3)
     letter <- List('a', 'b', 'c')
   } yield s"$number-$letter"
   // equivalent to the flatMap/map chain above
 
 
-  val aList = List(1,2,3,4,5) // list has a head = the first element, and a tail = the rest of the elements
+  val aList = List(1, 2, 3, 4, 5) // list has a head = the first element, and a tail = the rest of the elements
   val firstElement = aList.head
   val rest = aList.tail
   val aPrependedList = 0 :: aList // List(0,1,2,3,4,5) -- append all
   val anExtendedList = 0 +: aList :+ 6 // List(0,1,2,3,4,5,6) -- only append single element
 
   // sequences
-  val aSequence: Seq[Int] = Seq(1,2,3) // Seq.apply(1,2,3) // allows to access an element at a given index a.k.a. array
+  val aSequence: Seq[Int] = Seq(1, 2, 3) // Seq.apply(1,2,3) // allows to access an element at a given index a.k.a. array
   val accessedElement = aSequence.apply(1) // equivalent to aSequence(1); returns 2
 
   // vectors: fast Sequence implementation
-  val aVector = Vector(1,2,3,4,5) // has fast access time
+  val aVector = Vector(1, 2, 3, 4, 5) // has fast access time
 
   // sets = collections with no duplicates
-  val aSet = Set(1,2,3,4,1,2,3) // Set(1,2,3,4) // used to test whether an element is contained in a set
+  val aSet = Set(1, 2, 3, 4, 1, 2, 3) // Set(1,2,3,4) // used to test whether an element is contained in a set
   val setHas5 = aSet.contains(5) // returns false
   val anAddedSet = aSet + 5 // returns Set(1,2,3,4,5) // order is not important in a Set collection
   val aRemovedSet = aSet - 3 // returns Set(1,2,4)
@@ -92,7 +92,7 @@ object FunctionalProgramming extends App {
   val aTuple = ("Bon Jovi", "Rock", 1982)
 
   // maps
-  val aPhoneBook: Map[String, Int] = Map (
+  val aPhoneBook: Map[String, Int] = Map(
     ("Daniel", 123458),
     "Jane" -> 123409 // equivalent to ("Jane", 123409)
   )

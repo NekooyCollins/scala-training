@@ -1,10 +1,10 @@
-package rockthejvm
+package rockthejvm.advanced
 
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
 
-import scala.concurrent.{Future, Promise}
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{Future, Promise}
 
 object AsyncNonBlocking {
 
@@ -13,6 +13,7 @@ object AsyncNonBlocking {
     Thread.sleep(10000)
     arg + 42
   }
+
   blockingFunction(3) // blocking call
   val theMeaningOfLife = 42 // wait for 10 seconds
 
@@ -21,8 +22,9 @@ object AsyncNonBlocking {
     Thread.sleep(10000)
     arg + 42
   }
+
   asyncBlockingFunction(3)
-  val anotherMeaningOfLife = 42     // evaluates immediately
+  val anotherMeaningOfLife = 42 // evaluates immediately
 
   // asynchronous, NON-blocking
   // what an actor will do: given a message of type String,

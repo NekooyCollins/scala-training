@@ -1,4 +1,4 @@
-package rockthejvm
+package rockthejvm.fundamental
 
 object EightPMTricks {
   val aNumber = 44
@@ -9,7 +9,8 @@ object EightPMTricks {
     case _ => aNumber + "th"
   }
 
-  case class Person(name: String, age:Int)
+  case class Person(name: String, age: Int)
+
   val Bob = Person("Bob", 34)
   val bobGreeting = Bob match {
     case Person(n, a) => s"I am $n and I am $a years old"
@@ -38,7 +39,7 @@ object EightPMTricks {
 
   // trick #4 -- Other list infix patterns
   val mustEndWithMeaningOfLife = numberList match {
-    case List(1,2,_) :+ 42 => "found the meaning of life!"
+    case List(1, 2, _) :+ 42 => "found the meaning of life!"
   }
 
   val mustEndWithMeaningOfLife2 = numberList match {
@@ -47,6 +48,7 @@ object EightPMTricks {
 
   // trick #5 -- type specifiers
   def giveMeAValue(): Any = 45
+
   val giveMeAType = giveMeAValue() match {
     case _: String => "I have a String"
     case _: Int => "I have an Int"
@@ -55,8 +57,9 @@ object EightPMTricks {
 
   // trick #6 -- name binding
   def requestMoreInfo(p: Person): String = s"the person ${p.name} is a good person"
+
   val bobInfo = Bob match {
-    case p @ Person(n, a) => s"$n's info: ${requestMoreInfo(p)}"
+    case p@Person(n, a) => s"$n's info: ${requestMoreInfo(p)}"
     // the same as the upper one --> case Person(n, a) => s"$n's info: ${requestMoreInfo(Person(n, a))}"
   }
 

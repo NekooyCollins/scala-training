@@ -1,8 +1,8 @@
-package rockthejvm
+package rockthejvm.advanced
 
 object ContextualAbstraction {
 
-  /** 1- context parameters/arguments **/
+  /** 1- context parameters/arguments * */
 
   // Ordering
   implicit val descendingOrdering: Ordering[Int] = Ordering.fromLessThan(_ > _) // (a, b) => a > b
