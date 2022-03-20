@@ -1,4 +1,4 @@
-package rockthejvm
+package training
 
 object EitherExamples extends App {
 

@@ -1,4 +1,4 @@
-package rockthejvm
+package training
 
 import scala.io.Source
 import scala.util.{Failure, Success, Try}

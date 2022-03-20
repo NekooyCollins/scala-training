@@ -1,4 +1,4 @@
-package rockthejvm
+package rockthejvm.fundamental
 
 class ObjectOrientation extends App {
 

@@ -1,16 +1,16 @@
-package rockthejvm
+package rockthejvm.advanced
 
-import scala.concurrent.Future
-import scala.util._
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
+import scala.util.{Failure, Success, Try}
 
 object Advanced extends App {
 
-  /** lazy evaluation **/
+  /** lazy evaluation * */
   lazy val aLazyValue = 2
 
   // nothing will be printed out here
-  lazy val lazyValueWithSideEffect  ={
+  lazy val lazyValueWithSideEffect = {
     println("I am so lazy!")
     43
   }
@@ -18,7 +18,7 @@ object Advanced extends App {
   // I am so lazy! -- print now
   val eagerValue = lazyValueWithSideEffect + 1
 
-  /** pseudo-collections: Option, Try **/
+  /** pseudo-collections: Option, Try * */
   def methodWhichCanReturnNull(): String = "hello, scala!"
 
   // usually we do not use null in scala, but Option
@@ -32,6 +32,7 @@ object Advanced extends App {
   }
 
   def methodWithCanThrowException(): String = throw new RuntimeException
+
   // "collection" with either a value if the code went well, or an exception
   val aTry = Try(methodWithCanThrowException())
 
@@ -40,7 +41,7 @@ object Advanced extends App {
     case Failure(exception) => s"i have obtained an exception: $exception"
   }
 
-  /** Evaluate something on another thread (asynchronous programming) **/
+  /** Evaluate something on another thread (asynchronous programming) * */
 
   // future is a collection which contains a value when it's evaluated
   // future is composable with map, flatMap and filter
@@ -51,10 +52,11 @@ object Advanced extends App {
     67
   }
 
-  /** Implicits basics **/
+  /** Implicits basics * */
 
   // #1: implicit arguments
   def aMethodWithImplicitArgs(implicit arg: Int) = arg + 1
+
   implicit val myImplicitInt: Int = 46
   println(aMethodWithImplicitArgs) // aMethodWithImplicitArgs(myImplicitInt) = 47
 
