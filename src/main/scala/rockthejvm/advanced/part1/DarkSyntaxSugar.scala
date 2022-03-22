@@ -1,4 +1,4 @@
-package rockthejvm.advanced
+package rockthejvm.advanced.part1
 
 import scala.util.Try
 
@@ -25,7 +25,7 @@ object DarkSyntaxSugar extends App {
   val anInstance: Action = new Action {
     override def act(x: Int): Int = x + 1
   }
-  val aFunkyInstance: Action = (x: Int) => x + 1  // lambda to single abstract type conversion
+  val aFunkyInstance: Action = (x: Int) => x + 1 // lambda to single abstract type conversion
 
   // example Runnables
   val aThread = new Thread(new Runnable {
@@ -35,8 +35,10 @@ object DarkSyntaxSugar extends App {
 
   abstract class AnAbstractType {
     def implemented: Int = 23
+
     def f(i: Int): Unit
   }
+
   val anAbstractInstance: AnAbstractType = (a: Int) => println("sweet~")
 
   // syntax sugar #3: the :: and #:: methods are special
@@ -50,20 +52,24 @@ object DarkSyntaxSugar extends App {
   class MyStream[T] {
     def -->:(value: T): MyStream[T] = this
   }
+
   val myStream = 1 -->: 2 -->: 3 -->: new MyStream[Int]
 
   // syntax sugar #4: multi-word method naming
   class TeenGirl(name: String) {
     def `and then said`(gossip: String) = println(s"$name said $gossip")
   }
+
   val Lilly = new TeenGirl("Lilly")
   Lilly `and then said` "Scala is so sweet!" // == Lilly.`and then said`("Scala is so sweet!")
 
   // syntax sugar #5: infix types
   class Composite[A, B]
+
   val composite: Int Composite String = ??? //  val composite: Composite[Int, String] = ???
 
   class -->[A, B]
+
   val towards: Int --> String = ???
 
   // syntax sugar #6: update() is very special, much like apply(), usually used in mutable collections
@@ -73,11 +79,14 @@ object DarkSyntaxSugar extends App {
   // syntax sugar #7: setters for mutable containers
   class Mutable {
     private var internalMember: Int = 0 // private for OO encapsulation
+
     def member = internalMember // get method
+
     def member_=(value: Int): Unit = {
-      internalMember = value  // set method
+      internalMember = value // set method
     }
   }
+
   val aMutableContainer = new Mutable
   aMutableContainer.member = 42 // rewrittern as aMutableContainer.member_=(42)
 }
